@@ -8,6 +8,9 @@ import BookingPage from "./pages/BookingPage";
 import MessagingPage from "./pages/MessagingPage";
 import ReviewPage from "./pages/ReviewPage";
 import AdminPanel from "./pages/AdminPanel";
+import Search from "./pages/Search";
+import PhotographerProfile from "./pages/PhotographerProfile";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/chat" element={<MessagingPage />} />
         <Route path="/review" element={<ReviewPage />} />
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/photographer/:id" element={<PhotographerProfile />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
       </Routes>
     </Router>
   );
