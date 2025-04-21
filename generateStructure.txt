@@ -1,0 +1,24 @@
+const fs = require('fs');
+const path = require('path');
+
+const structure = {
+  'backend/controllers': ['authController.js', 'bookingController.js'],
+  'backend/routes': ['authRoutes.js', 'bookingRoutes.js'],
+  'backend/models': ['User.js', 'Booking.js', 'Review.js', 'Message.js'],
+  'backend/middleware': ['authMiddleware.js'],
+  'backend/config': ['db.js'],
+  'backend': ['.env', 'index.js']
+};
+
+for (const [folder, files] of Object.entries(structure)) {
+  fs.mkdirSync(folder, { recursive: true });
+  files.forEach(file => {
+    const filePath = path.join(folder, file);
+    fs.writeFileSync(filePath, '', 'utf8'); // creates an empty file
+  });
+}
+
+console.log('📁 Folder structure created!');
+
+
+//Use Command node generateStructure.js (it will create folder and files)
