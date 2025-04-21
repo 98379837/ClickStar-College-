@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ClientProfile from "./ClientProfile";
+import PhotographerProfileEdit from "./PhotographerProfileEdit";
+import AdminPanel from "./AdminPanel";
 
-export default function Dashboard() {
+export default function Profile() {
   const [user, setUser] = useState(null);
   const token = localStorage.getItem("token");
 
@@ -13,15 +16,7 @@ export default function Dashboard() {
 
   if (!user) return <div className="p-6">Loading...</div>;
 
-  const greeting =
-    user.isAdmin ? "Hello Admin 👑" :
-    user.role === "photographer" ? "Hello Photographer 📷" :
-    "Hello Sir / Ma'am 🙏";
-
-  return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">{greeting}</h2>
-      {/* You can also show upcoming bookings or actions here */}
-    </div>
-  );
+  if (user.isAdmin) return <AdminPanel />;
+  if (user.role === "photographer") return <PhotographerProfileEdit />;
+  return <ClientProfile />;
 }

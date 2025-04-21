@@ -33,3 +33,12 @@ export const updateBookingStatus = async (req, res) => {
     res.json(bookings);
   };
   
+  export const updateStatus = async (req, res) => {
+    const { status } = req.body; // "accepted" or "rejected"
+    const booking = await Booking.findById(req.params.id);
+    if (!booking) return res.status(404).json({ message: "Booking not found" });
+  
+    booking.status = status;
+    await booking.save();
+    res.json({ message: "Status updated" });
+  };

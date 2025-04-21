@@ -11,6 +11,11 @@ import AdminPanel from "./pages/AdminPanel";
 import Search from "./pages/Search";
 import PhotographerProfile from "./pages/PhotographerProfile";
 import EditProfile from "./pages/EditProfile";
+import PhotographerDashboard from "./pages/PhotographerDashboard";
+import PaymentPage from "./pages/PaymentPage";
+import ClientProfile from "./pages/ClientProfilePage";
+import PhotographerProfileEdit from "./pages/PhotographerProfileEdit";
+
 
 function App() {
   return (
@@ -28,6 +33,11 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/photographer/:id" element={<PhotographerProfile />} />
         <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/photographer-dashboard" element={<PhotographerDashboard />} />
+        <Route path="/pay" element={<PaymentPage />} />
+        <Route path="/profile-client" element={<ClientProfile />} />
+        <Route path="/profile-photographer" element={<PhotographerProfileEdit />} />
+        <Route path="/profile-admin" element={<AdminPanel />} />
       </Routes>
     </Router>
   );
